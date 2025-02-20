@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <div>
+      <input type="email" placeholder="" formControlName="email">
+      @if (form.get('email')?.touched && form.get('email')?.errors) {
+      <div class="error-message">Error.</div>
+      }
+    </div>
+
+    <div>
+      <input type="password" placeholder="" formControlName="password">
+      @if (form.get('password')?.touched && form.get('password')?.errors || this.error) {
+      <div class="error-message">Error.</div>
+      }
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+      <button (click)="guestLogin()">Guest Login</button>
+    </div>
+    <button (click)="onGoogleSignIn()">
+      <p>Login with Google</p>
+    </button>
+  </form>
+</div>
